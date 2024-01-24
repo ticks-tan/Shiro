@@ -1,6 +1,6 @@
 import { dehydrate } from '@tanstack/react-query'
 import { headers } from 'next/dist/client/components/headers'
-import type { PropsWithChildren } from 'react'
+import type { PropsWithChildren, ReactNode } from 'react'
 
 import { TimelineType } from '@mx-space/api-client'
 
@@ -15,7 +15,11 @@ export const metadata = {
   title: '时间线',
 }
 
-export default async (props: NextPageParams<{}, PropsWithChildren>) => {
+export default async (
+  props: NextPageParams<PropsWithChildren> & {
+    modal: ReactNode
+  },
+) => {
   attachUAAndRealIp()
   const header = headers()
   const query = header.get(REQUEST_QUERY)
@@ -53,6 +57,7 @@ export default async (props: NextPageParams<{}, PropsWithChildren>) => {
       {props.children}
 
       <SearchFAB />
+      {props.modal}
     </QueryHydrate>
   )
 }

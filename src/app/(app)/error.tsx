@@ -10,7 +10,7 @@ import { StyledButton } from '~/components/ui/button'
 import { isRequestError, pickStatusCode } from '~/lib/is-error'
 
 // eslint-disable-next-line react/display-name
-export default ({ error, reset }: any) => {
+export default ({ error }: any) => {
   useEffect(() => {
     console.log('error', error)
     // captureException(error)
@@ -28,7 +28,7 @@ export default ({ error, reset }: any) => {
     <NormalContainer>
       <div className="flex min-h-[calc(100vh-10rem)] flex-col center">
         <h2 className="mb-5">Something went wrong!</h2>
-        <StyledButton variant="primary" onClick={reset}>
+        <StyledButton variant="primary" onClick={() => location.reload()}>
           Try again
         </StyledButton>
       </div>

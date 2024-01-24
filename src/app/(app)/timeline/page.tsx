@@ -4,6 +4,7 @@ import { useQuery } from '@tanstack/react-query'
 import { memo, useEffect } from 'react'
 import clsx from 'clsx'
 import { m } from 'framer-motion'
+import Link from 'next/link'
 import { useRouter, useSearchParams } from 'next/navigation'
 import type { TimelineData } from '@mx-space/api-client'
 
@@ -11,7 +12,6 @@ import { TimelineType } from '@mx-space/api-client'
 
 import { SolidBookmark } from '~/components/icons/bookmark'
 import { NormalContainer } from '~/components/layout/container/Normal'
-import { PeekLink } from '~/components/modules/peek/PeekLink'
 import { TimelineProgress } from '~/components/modules/timeline/TimelineProgress'
 import { Divider } from '~/components/ui/divider'
 import { TimelineList } from '~/components/ui/list/TimelineList'
@@ -232,13 +232,13 @@ const Item = memo<{
             day: '2-digit',
           }).format(item.date)}
         </span>
-        <PeekLink
+        <Link
           prefetch={false}
           href={item.href}
           className="min-w-0 truncate leading-6"
         >
           <span className="min-w-0 truncate">{item.title}</span>
-        </PeekLink>
+        </Link>
         {item.important && (
           <SolidBookmark
             className="ml-2 cursor-pointer text-red-500"

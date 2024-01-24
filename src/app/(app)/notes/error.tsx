@@ -57,7 +57,7 @@ export default ({ error, reset }: { error: Error; reset: () => void }) => {
         <button
           onClick={
             // Attempt to recover by trying to re-render the segment
-            () => reset()
+            () => location.reload()
           }
         >
           Try again
