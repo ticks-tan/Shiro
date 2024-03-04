@@ -1,3 +1,5 @@
+'use client'
+
 import { useCallback, useEffect, useId, useRef } from 'react'
 import { AnimatePresence } from 'framer-motion'
 import { useAtomValue } from 'jotai'
