@@ -39,3 +39,6 @@ next-env.d.ts
 .vscode/sftp.json
 
 src/app/dev
+
+# Sentry Config File
+.sentryclirc

@@ -10,5 +10,6 @@ module.exports = {
     ],
     'prefer-arrow-callback': 'off',
     'no-console': ['error', { allow: ['warn', 'error', 'info'] }],
+    'import/namespace': 0,
   },
 }

@@ -4,6 +4,8 @@
 import { useEffect } from 'react'
 import { useParams } from 'next/navigation'
 
+import * as Sentry from '@sentry/nextjs'
+
 import { NotFound404 } from '~/components/common/404'
 import { NotePasswordForm } from '~/components/modules/note/NotePasswordForm'
 import { isRequestError, pickStatusCode } from '~/lib/is-error'
@@ -15,7 +17,7 @@ import { Paper } from '../../../components/layout/container/Paper'
 export default ({ error, reset }: { error: Error; reset: () => void }) => {
   useEffect(() => {
     if (!isRequestError(error)) {
-      // captureException(error)
+      Sentry.captureException(error)
     }
   }, [error])
 

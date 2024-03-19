@@ -3,6 +3,8 @@
 import { useEffect } from 'react'
 import { domAnimation, LazyMotion } from 'framer-motion'
 
+import * as Sentry from '@sentry/nextjs'
+
 // import { captureException } from '@sentry/nextjs'
 
 import { NormalContainer } from '~/components/layout/container/Normal'
@@ -17,7 +19,7 @@ export default function GlobalError({
 }) {
   useEffect(() => {
     console.error(error)
-    // captureException(error)
+    Sentry.captureException(error)
   }, [error])
   return (
     <html>
